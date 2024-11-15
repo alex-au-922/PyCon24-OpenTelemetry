@@ -1,0 +1,43 @@
+exporters:
+  otlp/trace:
+    endpoint: tempo:4317
+    tls:
+      insecure: true
+  prometheusremotewrite:
+    endpoint: prometheus:9090  # Prometheus remote write endpoint
+    tls:
+      insecure: true
+    external_labels:
+      source: otelcol
+  otlphttp/logs:
+    endpoint: http://loki:3100/otlp
+    tls:
+      insecure: true
+  debug:
+
+processors:
+  batch:
+
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+
+service:
+  pipelines:
+    logs:
+      exporters: [otlphttp/logs, debug]
+      # exporters: [debug]
+      processors: [batch]
+      receivers: [otlp]
+    metrics:
+      exporters: [prometheusremotewrite, debug]
+      # exporters: [debug]
+      processors: [batch]
+      receivers: [otlp]
+    traces:
+      exporters: [otlp/trace, debug]
+      # exporters: [debug]
+      processors: [batch]
+      receivers: [otlp]

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "product-info-querier"
+version = "0.1.0"
+description = ""
+authors = ["Alex Au <alex.au@chai-research.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.4"
+uvicorn = "^0.32.0"
+pydantic-settings = "^2.6.1"
+opentelemetry-instrumentation-fastapi = "^0.49b1"
+opentelemetry-exporter-otlp-proto-http = "^1.28.1"
+opentelemetry-instrumentation-logging = "^0.49b1"
+opentelemetry-sdk = "^1.28.1"
+opentelemetry-instrumentation-threading = "^0.49b1"
+opentelemetry-instrumentation-redis = "^0.49b1"
+redis = "^5.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

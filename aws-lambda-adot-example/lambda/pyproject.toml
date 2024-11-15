@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "lambda"
+version = "0.1.0"
+description = ""
+authors = ["Alex Au <alexuau922@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aws-lambda-powertools = "^3.2.0"
+boto3 = {extras = ["essential"], version = "^1.35.59"}
+opentelemetry-instrumentation-botocore = "^0.49b1"
+opentelemetry-instrumentation-boto = "^0.49b1"
+opentelemetry-instrumentation-aws-lambda = "^0.49b1"
+boto = "^2.49.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

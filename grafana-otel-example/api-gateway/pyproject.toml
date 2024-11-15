@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "shopping-cart"
+version = "0.1.0"
+description = ""
+authors = ["Alex Au <alexuau922@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.4"
+uvicorn = "^0.32.0"
+pydantic-settings = "^2.6.1"
+opentelemetry-instrumentation-fastapi = "^0.49b1"
+opentelemetry-exporter-otlp-proto-http = "^1.28.1"
+opentelemetry-instrumentation-logging = "^0.49b1"
+opentelemetry-sdk = "^1.28.1"
+httpx = "^0.27.2"
+opentelemetry-instrumentation-httpx = "^0.49b1"
+opentelemetry-instrumentation-threading = "^0.49b1"
+pymysql = "^1.1.1"
+opentelemetry-instrumentation-pymysql = "^0.49b1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

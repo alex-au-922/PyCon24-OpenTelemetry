@@ -1,0 +1,28 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "localhost:4317"
+      http:
+        endpoint: "localhost:4318"
+
+exporters:
+  otlp/http:
+    endpoint: otel.alexaupyconhk2024.com:443
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/http]
+    metrics:
+      receivers: [otlp]
+      exporters: [otlp/http]
+    logs:
+      receivers: [otlp]
+      exporters: [otlp/http]
+  telemetry:
+    metrics:
+      address: localhost:8888
